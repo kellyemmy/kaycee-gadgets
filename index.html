@@ -1,34 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kaycee Gadgets</title>
-<link rel="stylesheet" href="css/product.css">
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaycee Gadgets | Your Trusted Tech Store</title>
+    <style>
+        /* --- CSS STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --nav-bg: #1a237e;            /* Deep Navy */
+            --hero-bg: linear-gradient(135deg, #42a5f5 0%, #26c6da 100%);
+            --accent-action: #2979ff;     /* Modern Electric Blue */
+            --white: #ffffff;
+            --text-main: #263238;
+            --bg-light: #f4f7f9;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Header & Logo */
+        header {
+            background: var(--nav-bg);
+            color: white;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-img {
+            height: 45px; /* Adjust based on your image size */
+            width: auto;
+            border-radius: 4px;
+        }
+
+        .logo-text {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .cart-badge {
+            background: var(--accent-action);
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-left: 5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--hero-bg);
+            color: white;
+            text-align: center;
+            padding: 6rem 1rem;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn-shop {
+            display: inline-block;
+            background-color: var(--accent-action);
+            color: white;
+            padding: 1rem 3rem;
+            border-radius: 50px; /* Pill shape */
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: 0.3s;
+        }
+
+        .btn-shop:hover {
+            transform: translateY(-3px);
+            background-color: #1565c0;
+        }
+
+        /* Product Grid */
+        .products-container {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2rem;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--nav-bg);
+            margin: 10px 0;
+        }
+
+        .btn-add {
+            background: var(--accent-action);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            width: 100%;
+            font-weight: 600;
+        }
+
+
+        footer {
+            background: #263238;
+            color: #eceff1;
+            padding: 4rem 5% 2rem;
+            text-align: center;
+        }
+
+        .footer-bottom {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid #455a64;
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        @media (max-width: 768px) {
+            header { flex-direction: column; gap: 1rem; }
+            .hero h2 { font-size: 2rem; }
+        }
+    </style>
 </head>
 <body>
 
-<header>
-    <h1>Kaycee Gadgets</h1>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="product.html">Products</a>
-        <a href="cart.html">
-Cart <span id="cart-count" class="badge">0</span>
-</a>
-    </nav>
-</header>
+    <header>
+        <div class="logo-container">
+            <img src="logo_kg.png" alt="KG" class="logo-img">
+            <span class="logo-text">Kaycee Gadgets</span>
+        </div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Products</a>
+            <a href="#">Cart <span class="cart-badge">0</span></a>
+        </nav>
+    </header>
 
-<section class="hero">
-    <h2>Your Trusted Tech Store</h2>
-    <p>Phones, Laptops, PlayStations & Smart Watches at the best prices in Nigeria.</p>
-    <a href="products.html" class="btn">Shop Now</a>
-</section>
+    <section class="hero">
+        <h2>Your Trusted Tech Store</h2>
+        <p>Phones, Laptops, PlayStations & Smart Watches at the best prices in Nigeria.</p>
+        <a href="#" class="btn-shop">Shop Now</a>
+    </section>
 
-<footer>
-    <p>© 2026 Kaycee Gadgets. All rights reserved.</p>
-</footer>
+    <main class="products-container">
+        <h2 class="section-title">Featured Products</h2>
+        <div class="product-grid">
+            
+            <div class="card">
+                <img src="iPhone15.jpg" alt="iPhone 15 Pro">
+                <h3>iPhone 15 Pro</h3>
+                <span class="price">₦ 1,200,000</span>
+                <button class="btn-add">Add to Cart</button>
+            </div>
+
+            <div class="card">
+                <img src="macbook.jpg" alt="macbook pro">
+                <h3>MacBook Pro</h3>
+                <span class="price">₦ 1,500,000</span>
+                <button class="btn-add">Add to Cart</button>
+            </div>
+
+            <div class="card">
+                <img src="samsung-phone.jpg" alt="Samsung Galaxy S22 Ultra">
+                <h3>Samsung Galaxy S22 Ultra</h3>
+                <span class="price">₦ 1,500,000</span>
+                <button class="btn-add">Add to Cart</button>
+            </div>
+            
+            <div class="card">
+                <img src="playstation5.jpg" alt="PlayStation 5">
+                <h3>PlayStation 5</h3>
+                <span class="price">₦ 500,000</span>
+                <button class="btn-add">Add to Cart</button>
+            </div>
+            <div class="card">
+                <img src="Apple_smartwatch.jpg" alt=" Apple Smart Watch">
+                <h3>Apple Smart Watch</h3>
+                <span class="price">₦ 250,000</span>
+                <button class="btn-add">Add to Cart</button>
+            </div>
+    </main>
+
+    <footer>
+        <div class="footer-info">
+            <h3>Kaycee Gadgets</h3>
+            <p>Lagos, Nigeria</p>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 Kaycee Gadgets. All rights reserved.
+        </div>
+    </footer>
 
 </body>
 </html>

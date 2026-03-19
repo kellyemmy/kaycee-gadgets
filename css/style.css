@@ -1,33 +1,50 @@
-* {
+ {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+:root {
+  /* Updated Palette based on the Tech Mockup */
+  --nav-bg: #1a237e;            /* Deep Professional Navy */
+  --hero-bg: linear-gradient(135deg, #42a5f5 0%, #26c6da 100%);
+  --accent-action: #2979ff;     /* Modern Electric Blue */
+  --btn-hover: #1565c0;
+  --text-main: #263238;
+  --bg-light: #f4f7f9;
+  --white: #ffffff;
+}
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
-  color: #333;
-  background-color: #f4f4f4;
+  color: var(--text-main);
+  background-color: var(--bg-light);
 }
 
+/* 2. Header & Navigation */
 header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--nav-bg); /* Replaced purple gradient with Navy */
   color: white;
-  padding: 1.5rem 2rem;
+  padding: 1.2rem 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 header h1 {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
+  letter-spacing: 0.5px;
 }
 
 nav {
   display: flex;
   gap: 2rem;
+  align-items: center;
 }
 
 nav a {
@@ -38,139 +55,146 @@ nav a {
 }
 
 nav a:hover {
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
 .badge {
-  background-color: #ff6b6b;
-  border-radius: 50%;
-  padding: 0.2rem 0.5rem;
+  background-color: var(--accent-action); /* Unified with button color */
+  border-radius: 50px;
+  padding: 0.2rem 0.6rem;
   font-size: 0.8rem;
-  margin-left: 0.5rem;
+  margin-left: 0.4rem;
 }
 
+/* 3. Hero Section (The "Tech Store" Look) */
 .hero {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: var(--hero-bg); /* Replaced flat lightblue with Gradient */
   color: white;
   text-align: center;
-  padding: 4rem 2rem;
+  padding: 5rem 2rem;
 }
 
 .hero h2 {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   margin-bottom: 1rem;
+  font-weight: 700;
 }
 
 .hero p {
-  font-size: 1.1rem;
-  margin-bottom: 2rem;
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.9;
 }
 
 .btn {
   display: inline-block;
-  background-color: #ff6b6b;
+  background-color: var(--accent-action); /* Modern blue instead of red */
   color: white;
-  padding: 0.8rem 2rem;
-  border-radius: 5px;
+  padding: 1rem 2.5rem;
+  border-radius: 50px; /* Pill shape for modern look */
   text-decoration: none;
   font-weight: 600;
-  transition: background-color 0.3s;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
 }
 
 .btn:hover {
-  background-color: #ff5252;
+  background-color: var(--btn-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
 }
 
+/* 4. Product Section & Cards */
 .products {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-  padding: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  padding: 3rem 2rem;
   max-width: 1200px;
-  margin: 2rem auto;
+  margin: 0 auto;
 }
 
 .card {
-  background: white;
-  border-radius: 8px;
+  background: var(--white);
+  border-radius: 12px; /* Smoother corners */
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s, box-shadow 0.3s;
   display: flex;
   flex-direction: column;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
 }
 
 .card img {
   width: 100%;
-  height: 250px;
-  object-fit: cover;
-  cursor: pointer;
-  transition: transform 0.3s;
-}
-
-.card img:hover {
-  transform: scale(1.05);
+  height: 220px;
+  object-fit: contain; /* Better for electronics images */
+  background: #fff;
+  padding: 20px;
 }
 
 .card h3 {
-  padding: 1rem 1rem 0.5rem;
-  color: #333;
-  font-size: 1.2rem;
+  padding: 1.2rem 1.2rem 0.5rem;
+  color: var(--text-main);
+  font-size: 1.1rem;
 }
 
 .card p {
-  padding: 0 1rem;
-  color: #667eea;
-  font-size: 1.3rem;
-  font-weight: bold;
+  padding: 0 1.2rem;
+  color: var(--nav-bg); /* Price matches the navy theme */
+  font-size: 1.4rem;
+  font-weight: 700;
 }
 
 .card button {
-  margin: 1rem;
-  padding: 0.8rem;
-  background-color: #667eea;
+  margin: 1.2rem;
+  padding: 0.9rem;
+  background-color: var(--accent-action);
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
   font-weight: 600;
-  transition: background-color 0.3s;
+  transition: background 0.3s;
 }
 
 .card button:hover {
-  background-color: #764ba2;
+  background-color: var(--btn-hover);
 }
 
+/* 5. Footer */
 footer {
-  background-color: #333;
-  color: white;
+  background-color: #263238; /* Darker Slate/Charcoal */
+  color: #cfd8dc;
   text-align: center;
-  padding: 2rem;
-  margin-top: 2rem;
+  padding: 3rem 2rem;
+  margin-top: 4rem;
 }
 
+/* 6. Responsive Design */
 @media (max-width: 768px) {
   header {
     flex-direction: column;
-    gap: 1rem;
+    padding: 1.5rem;
   }
 
   nav {
-    flex-direction: column;
-    gap: 1rem;
+    margin-top: 1rem;
+    gap: 1.2rem;
   }
 
   .hero h2 {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 
   .products {
     grid-template-columns: 1fr;
-    padding: 1rem;
   }
 }
